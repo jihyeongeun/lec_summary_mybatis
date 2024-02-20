@@ -31,8 +31,12 @@ public class Application {
                 case 3:
                     menuController.registMenu(inputMenu());
                     break;
-                case 4: break;
-                case 5: break;
+                case 4:
+                    menuController.modifyMenu(inputModifyMenu());
+                    break;
+                case 5:
+                    menuController.removeMenu(inputMenuCode());
+                    break;
                 case 9:
                     System.out.println("프로그램을 종료합니다.");
                     return;
@@ -42,8 +46,8 @@ public class Application {
         } while(true);
     }
 
-    /* 설명. 사용자의 입력 값을 Map 형태로 반환(Web에서는 key와 value 형태로 request 객체에 담기는 parameter로 생각) */
 
+    /* 설명. 사용자의 입력 값을 Map 형태로 반환(Web에서는 key와 value 형태로 request 객체에 담기는 parameter로 생각) */
     private static Map<String, String> inputMenuCode() {
         Scanner sc = new Scanner(System.in);
         System.out.print("메뉴 코드를 입력하세요: ");
@@ -58,15 +62,31 @@ public class Application {
         Scanner sc = new Scanner(System.in);
         System.out.print("신규메뉴의 이름을 입력해주세요 : ");
         String menuName = sc.nextLine();
-        System.out.print("메뉴 가격을 입력해주세요 : ");
+        System.out.print("신규메뉴의 가격을 입력해주세요 : ");
         String menuPrice = sc.nextLine();
-        System.out.print("카테고리 코드를 입력해주세요 : ");
+        System.out.print("신규메뉴의 카테고리 코드를 입력해주세요 : ");
         String categoryCode = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("menuName", menuName);
         parameter.put("menuPrice", menuPrice);
         parameter.put("categoryCode", categoryCode);
+
+        return parameter;
+    }
+    private static Map<String, String> inputModifyMenu() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("변경할 메뉴의 번호를 입력해주세요 : ");
+        String menuCode = sc.nextLine();
+        System.out.print("변경할 메뉴의 이름을 입력해주세요 : ");
+        String menuName = sc.nextLine();
+        System.out.print("변경할 메뉴의 가격을 입력해주세요 : ");
+        String menuPrice = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("menuCode", menuCode);
+        parameter.put("menuName", menuName);
+        parameter.put("menuPrice", menuPrice);
 
         return parameter;
     }

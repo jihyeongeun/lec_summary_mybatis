@@ -44,7 +44,38 @@ public class MenuController {           // 이 클래스가 존재하려면 반�
         menu.setMenuPrice(menuPrice);
         menu.setCategoryCode(categoryCode);
 
-        boolean result = menuService.registMenu(menu);
-        System.out.println("result = " + result);
+        if(menuService.registMenu(menu)){
+            printResult.printSuccessMessage("regist");
+        } else {
+            printResult.printErrorMessage("메뉴 추가 실패");
+        }
+
+    }
+
+    public void modifyMenu(Map<String, String> parameter) {
+        int menuCode = Integer.valueOf(parameter.get("menuCode"));
+        String menuName = parameter.get("menuName");
+        int menuPrice = Integer.valueOf(parameter.get("menuPrice"));
+
+        MenuDTO menu = new MenuDTO();
+        menu.setMenuCode(menuCode);
+        menu.setMenuName(menuName);
+        menu.setMenuPrice(menuPrice);
+
+        if (menuService.modifyMenu(menu)){
+            printResult.printSuccessMessage("modify");
+        } else {
+            printResult.printErrorMessage("메뉴 수정 실패");
+        }
+    }
+
+    public void removeMenu(Map<String, String> parameter) {
+        int menuCode = Integer.valueOf(parameter.get("menuCode"));
+
+        if (menuService.removeMenu(menuCode)){
+            printResult.printSuccessMessage("remove");
+        } else {
+            printResult.printErrorMessage("매뉴 삭제 실패");
+        }
     }
 }
