@@ -52,16 +52,16 @@
     </select>
     <select id="searchMenu" parameterType="com.ohgiraffers.section01.xml.SearchCriteria" resultMap="menuResultMap">
         SELECT
-               A.MENU_CODE
-             , A.MENU_NAME
-             , A.MENU_PRICE
-             , A.CATEGORY_CODE
-             , A.ORDERABLE_STATUS
-          FROM TBL_MENU A
+        A.MENU_CODE
+        , A.MENU_NAME
+        , A.MENU_PRICE
+        , A.CATEGORY_CODE
+        , A.ORDERABLE_STATUS
+        FROM TBL_MENU A
         <if test="condition == 'category'">
             JOIN TBL_CATEGORY B ON(A.CATEGORY_CODE = B.CATEGORY_CODE)
         </if>
-         WHERE A.ORDERABLE_STATUS = 'Y'
+        WHERE A.ORDERABLE_STATUS = 'Y'
         <if test="condition == 'name'">
             AND A.MENU_NAME LIKE CONCAT('%', #{value}, '%')
         </if>

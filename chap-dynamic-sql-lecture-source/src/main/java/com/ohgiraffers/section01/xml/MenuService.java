@@ -12,7 +12,6 @@ public class MenuService {
         MenuMapper mapper = sqlSession.getMapper(MenuMapper.class);
 
         List<MenuDTO> menus = mapper.selectMenuByPrice(maxPrice);
-        System.out.println("service: ");
         menus.forEach(System.out::println);
         sqlSession.close();
     }
@@ -22,7 +21,6 @@ public class MenuService {
         MenuMapper mapper = sqlSession.getMapper(MenuMapper.class);
 
         List<MenuDTO> menus = mapper.searchMenu(searchCriteria);
-        System.out.println("service : ");
         menus.forEach(System.out::println);
         sqlSession.close();
     }

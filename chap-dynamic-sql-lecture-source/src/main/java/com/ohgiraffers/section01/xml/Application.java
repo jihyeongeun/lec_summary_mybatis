@@ -69,8 +69,8 @@ public class Application {
     public static SearchCriteria inputSearchCriteria(){
         Scanner sc = new Scanner(System.in);
         System.out.print("검색기준을 입력해주세요(name or category) : ");
-
         String condition = sc.nextLine();
+
         System.out.print("검색어를 입력해주세요 : ");
         String value = sc.nextLine();
 
@@ -190,7 +190,7 @@ public class Application {
     /* 설명. SearchCriteria(condition과 value의 묶음) 개념을 이번에는 DTO가 아닌 Map으로 작성해보자 */
     private static Map<String, Object> inputsearchCriteriamap() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("검색조건을 입려하세요(category, or name or both or none : ) : ") ;
+        System.out.print("검색조건을 입력하세요(category, or name or both or none : ) : ") ;
         String condition = sc.nextLine();
 
         Map<String, Object> criteria= new HashMap<>();
