@@ -6,4 +6,6 @@ public interface ElementMapper {
     List<MenuDTO> selectResultMapTest();
 
     List<MenuAndCategoryDTO> selectResultAssociationTest();
+
+    List<CategoryAndMenuDTO> selectResultMapCollectionTest();
 }
