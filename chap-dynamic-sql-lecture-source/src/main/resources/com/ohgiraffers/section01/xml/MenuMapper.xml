@@ -24,7 +24,7 @@
           3. lte(<=) : less than equal
           4. lt(<) : less than
           5. eq(==) : equal
-          6. ne(!=) : not equal
+          6. neq(!=) : not equal
     -->
     <select id="selectMenuByPrice" parameterType="_int" resultMap="menuResultMap">
         SELECT
